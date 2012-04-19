@@ -1,6 +1,11 @@
 CarrierwaveApp::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
+  
+  root :to => "galleries#index"
+
+  resources :galleries
+  resources :paintings
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

@@ -1,0 +1,13 @@
+<%= form_for @painting ,:html => {:multipart => true} do |f|%>
+
+	<%= f.hidden_field :gallery_id %>
+	
+	<div class="fields">
+		<%= f.label :name%>
+		<%= f.text_field :name%>
+		<%= f.file_field :image%>
+	</div>
+	
+  	<p><%= f.submit %></p>
+
+<% end %>

@@ -5,6 +5,6 @@ class AddImageToPaintings < ActiveRecord::Migration
   end
   
   def self.down
-    emove_column :paintings, :image
+    remove_column :paintings, :image
   end
 end
