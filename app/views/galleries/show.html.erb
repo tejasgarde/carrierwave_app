@@ -1,16 +1,30 @@
 <%= @gallery.name %>
 
 <div id="paintings">
-  <% for painting in @gallery.paintings %>
-	<div class="painting">
-	  <%= image_tag painting.image_url.to_s , :class =>"image" , :height => 150, :width => 150 %>
-	  <div class="name"><%= painting.name %></div>
-	  <div class="actions">
-		<%= link_to "edit", edit_painting_path(painting) %> |
-		<%= link_to "remove", painting, :confirm => 'Are you sure?', :method => :delete %>
-	  </div>
+ 
+	<div class="carousel-container" >
+		
+		<div id="carousel" >
+			
+			 <% for painting in @gallery.paintings %>
+			
+				<div class="carousel-feature">
+					  <%= link_to (image_tag painting.image_url.to_s , :width=>450 , :height => 250 ,:class=>"carousel-image") %>
+					  <div class="name"><%= painting.name %></div>
+					  <div class="actions">
+						<%= link_to "edit", edit_painting_path(painting) %> |
+						<%= link_to "remove", painting, :confirm => 'Are you sure?', :method => :delete %>
+					  </div>
+				</div>
+			<% end %>
+		
+		</div>
+		 
+		<div id="carousel-left"><%= image_tag "arrow-left.png" %></div>
+	  	<div id="carousel-right"><%= image_tag "arrow-right.png" %></div>
+		
 	</div>
-  <% end %>
+ 
   <div class="clear"></div>
 </div>
 

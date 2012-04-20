@@ -1,0 +1,34 @@
+<%= @gallery.name %>
+
+<div id="controls" class="controls"></div>
+  <% for painting in @gallery.paintings %>
+	<div id="gallery" class="content">
+		<div id="controls" class="controls"></div>
+		<div class="slideshow-container">
+			<div id="loading" class="loader"></div>
+			<div id="slideshow" class="slideshow"></div>
+		</div>
+	</div>
+	<div id="thumbs" class="navigation">
+		<ul class="thumbs noscript">
+			
+			<li>
+				<%= image_tag painting.image_url.to_s , :class =>"thumb" , :height => 150, :width => 150  %>
+				 <div class="name"><%= painting.name %></div>
+					<div class="actions">
+						 <%= link_to "edit", edit_painting_path(painting) %> |
+						 <%= link_to "remove", painting, :method => :delete, :confirm => "You sure?" %>
+					</div>
+				 </div>
+			 </li>
+		 </ul>
+	</div>
+  <% end %>
+  <div class="clear"></div>
+</div>
+
+<p>
+  <%= link_to "Add a Painting", new_painting_path(:gallery_id => @gallery) %> |
+  <%= link_to "Remove Gallery", @gallery, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View Galleries", galleries_path %>
+</p>
